@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(0,0,0,0.7);
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+        }
+        img {
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        a.button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #00c6ff;
+            color: black;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        a.button:hover {
+            background: #0072ff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1><i class="fas fa-chart-line"></i> Prediction Result</h1>
+    <h2>{{ prediction }}</h2>
+
+
+
+    <h3>Input Graph</h3>
+<img src="{{ url_for('static', filename='input_graph.png') }}" width="300">
+
+<h3>Feature Importance</h3>
+<img src="{{ url_for('static', filename='feature_graph.png') }}" width="300">
+    <img src="{{ url_for('static', filename='dashboard.png') }}">
+
+    <br>
+    <a class="button" href="/download"><i class="fas fa-download"></i> Download PDF Report</a>
+    <br><br>
+    <a class="button" href="/"><i class="fas fa-home"></i> Back to Home</a>
+    <br><br>
+    <a class="button" href="/dashboard"><i class="fas fa-table"></i> View Dashboard</a>
+</div>
+
+</body>
+</html>

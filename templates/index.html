@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>STUDENT PERFORMANCE PREDICTOR</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .container {
+            background: rgba(0,0,0,0.7);
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #00c6ff;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0072ff;
+            color: white;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background: #00c6ff;
+            color: black;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            background: #0072ff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1><i class="fas fa-chart-line"></i> STUDENT PERFORMANCE PREDICTOR </h1>
+
+
+    <form name="form" action="/predict" method="POST" onsubmit="return validateForm()">
+        <input type="number" name="attendance" placeholder="Attendance (0-100)" required><br>
+        <input type="number" name="study_time" placeholder="Study Time" required><br>
+        <input type="number" name="assignments" placeholder="Assignments" required><br>
+        <input type="number" name="marks" placeholder="Previous Marks" required><br>
+
+        <button type="submit"><i class="fas fa-rocket"></i> Predict</button>
+    </form>
+
+    <div class="links">
+        <a href="/dashboard"><i class="fas fa-table"></i> View Dashboard</a>
+    </div>
+</div>
+
+<script>
+function validateForm() {
+    let attendance = document.forms["form"]["attendance"].value;
+
+    if (attendance < 0 || attendance > 100) {
+        alert("Attendance must be between 0 and 100");
+        return false;
+    }
+    return true;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Student Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background: rgba(0,0,0,0.7);
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #555;
+        }
+        tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.05);
+        }
+        .summary {
+            width: 50%;
+            margin: 20px auto;
+            background: rgba(0,0,0,0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        a.button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #00c6ff;
+            color: black;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        a.button:hover {
+            background: #0072ff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1><i class="fas fa-table"></i> Student Performance Dashboard</h1>
+
+<div class="summary">
+    <h3>Total Students: {{ data|length }}</h3>
+    <h3>Passed: {{ pass_count }}</h3>
+    <h3>Failed: {{ fail_count }}</h3>
+    <a class="button" href="/"><i class="fas fa-home"></i> Back to Home</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Attendance</th>
+            <th>Study Time</th>
+            <th>Assignments</th>
+            <th>Marks</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
